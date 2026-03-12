@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "node node_modules/esbuild/install.js && vite build",
+    "build": "find node_modules -name esbuild -type f -path '*/bin/*' -exec chmod +x {} + 2>/dev/null; vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
