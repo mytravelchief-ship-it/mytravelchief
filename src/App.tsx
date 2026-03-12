@@ -48,7 +48,7 @@ const VEHICLES: Vehicle[] = [
     type: 'Sedan',
     seats: 4,
     label: 'Best for small families',
-    image: 'https://mallucabscochin.com/image/taxi/swift-dzire-cab-booking-in-kochi.jpg',
+    image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773312544/Screenshot_2026-03-12_161818_qysbit.png',
     description: 'Comfortable air-conditioned sedan perfect for city rides and airport transfers.',
     tariffs: {
       airport: [
