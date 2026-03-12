@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(npx vite build)",
+      "WebFetch(domain:maps.app.goo.gl)",
+      "Bash(npm install:*)",
+      "Bash(pnpm add:*)"
+    ]
+  }
+}
