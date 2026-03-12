@@ -303,7 +303,6 @@ const Logo = ({ light = false, className = "" }: { light?: boolean; className?: 
               <stop offset="100%" stopColor="#9A7D0A" />
             </linearGradient>
           </defs>
-          {/* Circular stroke */}
           <path
             d="M 80 20 A 40 40 0 1 0 80 80"
             fill="none"
@@ -311,12 +310,10 @@ const Logo = ({ light = false, className = "" }: { light?: boolean; className?: 
             strokeWidth="8"
             strokeLinecap="round"
           />
-          {/* Bird/Wing Shape */}
           <path
             d="M 45 50 C 60 30 90 40 95 55 C 85 50 75 65 60 75 C 55 65 45 55 45 50 Z"
             fill="url(#goldGradient)"
           />
-          {/* Silver accent */}
           <path
             d="M 75 48 C 80 45 85 45 90 48"
             fill="none"
@@ -327,10 +324,10 @@ const Logo = ({ light = false, className = "" }: { light?: boolean; className?: 
         </svg>
       </div>
       <div className="flex flex-col leading-none text-left">
-        <span className={`text-xl font-display font-black uppercase tracking-[-0.05em] ${light ? 'text-white' : 'text-brand-dark'}`}>
+        <span className={`text-xl font-display font-black uppercase tracking-[-0.05em] ${light ? 'text-white' : 'text-brand-black'}`}>
           TRAVEL <span className="text-brand-gold">CHIEF</span>
         </span>
-        <span className={`text-[7px] font-bold uppercase tracking-[0.3em] ${light ? 'text-white/60' : 'text-brand-dark/40'}`}>
+        <span className={`text-[7px] font-bold uppercase tracking-[0.3em] ${light ? 'text-white/60' : 'text-brand-black/40'}`}>
           The World On Wings
         </span>
       </div>
@@ -351,7 +348,7 @@ const useScrollToHash = () => {
   }, [location]);
 };
 
-const NavLink = ({ name, href, onClick, children, linkClassName }: { name: string; href: string; onClick?: () => void; children?: ReactNode; linkClassName?: string }) => {
+const NavLink = ({ name, href, onClick, children }: { name: string; href: string; onClick?: () => void; children?: ReactNode }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -359,14 +356,12 @@ const NavLink = ({ name, href, onClick, children, linkClassName }: { name: strin
     e.preventDefault();
     onClick?.();
 
-    // Route link (like /tariff)
     if (href.startsWith('/')) {
       navigate(href);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
-    // Hash link — if we're already on homepage, just scroll
     if (location.pathname === '/') {
       if (href === '#') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -375,7 +370,6 @@ const NavLink = ({ name, href, onClick, children, linkClassName }: { name: strin
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // Navigate to home first, then scroll
       navigate('/' + (href === '#' ? '' : href));
     }
   };
@@ -384,7 +378,7 @@ const NavLink = ({ name, href, onClick, children, linkClassName }: { name: strin
     <a
       href={href}
       onClick={handleClick}
-      className={children ? '' : (linkClassName || "text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:text-brand-gold text-brand-dark/60 hover:tracking-[0.3em]")}
+      className={children ? '' : "text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:text-brand-gold text-white/70 hover:tracking-[0.3em]"}
     >
       {children || name}
     </a>
@@ -411,13 +405,11 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const navLinkClass = `text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:text-brand-gold hover:tracking-[0.3em] ${isScrolled ? 'text-brand-dark/60' : 'text-white/70'}`;
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md border-b border-gray-200 py-3 shadow-sm' : 'bg-transparent py-6'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-brand-black/95 backdrop-blur-md border-b border-white/5 py-3' : 'bg-transparent py-6'}`}>
       <nav className="container mx-auto px-6 flex justify-between items-center">
         <NavLink name="" href="#" onClick={() => setIsMobileMenuOpen(false)}>
-          <Logo light={!isScrolled} />
+          <Logo light={true} />
         </NavLink>
 
         {/* Desktop Nav */}
@@ -425,13 +417,13 @@ const Navbar = () => {
           <ul className="flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <NavLink name={link.name} href={link.href} linkClassName={navLinkClass} />
+                <NavLink name={link.name} href={link.href} />
               </li>
             ))}
           </ul>
           <a
             href="https://wa.me/917559917686"
-            className="group relative px-8 py-3 bg-brand-gold text-brand-dark text-[10px] font-black uppercase tracking-[0.2em] overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95"
+            className="group relative px-8 py-3 bg-brand-gold text-brand-black text-[10px] font-black uppercase tracking-[0.2em] overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95"
           >
             <span className="relative z-10">Book Now</span>
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -440,7 +432,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className={`lg:hidden p-2 ${isScrolled ? 'text-brand-dark' : 'text-white'}`}
+          className="lg:hidden p-2 text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -454,19 +446,19 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 overflow-hidden shadow-2xl"
+            className="lg:hidden absolute top-full left-0 right-0 bg-brand-black border-b border-white/5 overflow-hidden shadow-2xl"
           >
             <ul className="p-8 space-y-6">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <NavLink name={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} linkClassName="text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:text-brand-gold text-brand-dark/60 hover:tracking-[0.3em]" />
+                  <NavLink name={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} />
                 </li>
               ))}
-              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200">
-                <a href="https://wa.me/917559917686" className="bg-brand-gold text-brand-dark p-4 rounded-xl flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest">
+              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/5">
+                <a href="https://wa.me/917559917686" className="bg-brand-gold text-brand-black p-4 rounded-xl flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest">
                   <MessageCircle size={18} /> WhatsApp
                 </a>
-                <a href="tel:+917559917686" className="bg-gray-100 text-brand-dark p-4 rounded-xl flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest border border-gray-200">
+                <a href="tel:+917559917686" className="bg-white/5 text-white p-4 rounded-xl flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest border border-white/10">
                   <Phone size={18} /> Call Now
                 </a>
               </div>
@@ -495,7 +487,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-32 pb-10 overflow-hidden bg-brand-dark">
+    <section className="relative min-h-screen flex items-center pt-32 pb-10 overflow-hidden bg-brand-black">
       {/* Background Slideshow */}
       <div className="absolute inset-0 z-0">
         {HERO_SLIDES.map((src, i) => (
@@ -511,7 +503,7 @@ const Hero = () => {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/50 to-brand-dark" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-brand-black/50 to-brand-black" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -520,7 +512,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-black uppercase leading-[0.9] tracking-[-0.03em] mb-8 text-white"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-black uppercase leading-[0.9] tracking-[-0.03em] mb-8"
           >
             The World <br />
             <span className="text-stroke-gold">On Wings</span>
@@ -544,7 +536,7 @@ const Hero = () => {
           >
             <a
               href="#tariff"
-              className="group relative w-full sm:w-auto px-10 py-5 bg-brand-gold text-brand-dark text-xs font-black uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95"
+              className="group relative w-full sm:w-auto px-10 py-5 bg-brand-gold text-brand-black text-xs font-black uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 View Fleet <ArrowRight size={16} />
@@ -594,7 +586,7 @@ const Hero = () => {
 
 const Services = () => {
   return (
-    <section id="services" className="py-32 bg-white relative overflow-hidden">
+    <section id="services" className="py-32 bg-brand-black relative overflow-hidden">
       <div className="section-title-bg">SERVICES</div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -606,12 +598,12 @@ const Services = () => {
               <span className="text-stroke">Solutions</span>
             </h2>
           </div>
-          <p className="text-gray-400 max-w-sm text-sm font-medium leading-relaxed">
+          <p className="text-white/40 max-w-sm text-sm font-medium leading-relaxed">
             From quick city hops to extensive Kerala explorations, we provide tailored transportation for every need.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 border border-gray-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5">
           {SERVICES.map((service, index) => (
             <motion.div
               key={service.title}
@@ -619,15 +611,15 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative bg-white p-10 hover:bg-gray-50 transition-all duration-500"
+              className="group relative bg-brand-black p-10 hover:bg-brand-black-light transition-all duration-500"
             >
-              <div className="w-16 h-16 bg-brand-gold/10 rounded-2xl flex items-center justify-center mb-8 text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-dark transition-all duration-500">
+              <div className="w-16 h-16 bg-brand-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
                 <service.icon size={32} />
               </div>
               <h3 className="text-xl font-display font-bold uppercase tracking-tight mb-4 group-hover:text-brand-gold transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-8 group-hover:text-gray-600 transition-colors">
+              <p className="text-white/40 text-sm leading-relaxed mb-8 group-hover:text-white/60 transition-colors">
                 {service.description}
               </p>
               <a href={service.link} className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-gold opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
@@ -675,9 +667,8 @@ const PackageTariff = () => {
         {PACKAGE_TARIFFS.map((vehicle, i) => (
           <div
             key={i}
-            className={`rounded-2xl border transition-all duration-300 ${openIdx === i ? 'border-brand-gold/30 bg-white shadow-lg' : 'border-gray-200 bg-gray-50 hover:border-gray-300'}`}
+            className={`rounded-2xl border transition-all duration-300 ${openIdx === i ? 'border-brand-gold/30 bg-brand-black' : 'border-white/5 bg-white/[0.02] hover:border-white/10'}`}
           >
-            {/* Accordion Header */}
             <button
               onClick={() => setOpenIdx(openIdx === i ? null : i)}
               className="w-full px-6 py-5 flex items-center justify-between gap-4"
@@ -687,17 +678,16 @@ const PackageTariff = () => {
                   {i + 1}
                 </span>
                 <div className="text-left">
-                  <h4 className="font-display font-bold text-brand-dark text-base tracking-tight">{vehicle.name}</h4>
-                  <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">{vehicle.passengers} Passengers &middot; AC</span>
+                  <h4 className="font-display font-bold text-white text-base tracking-tight">{vehicle.name}</h4>
+                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest">{vehicle.passengers} Passengers &middot; AC</span>
                 </div>
               </div>
               <ChevronDown
                 size={20}
-                className={`text-gray-400 transition-transform duration-300 flex-shrink-0 ${openIdx === i ? 'rotate-180 text-brand-gold' : ''}`}
+                className={`text-white/30 transition-transform duration-300 flex-shrink-0 ${openIdx === i ? 'rotate-180 text-brand-gold' : ''}`}
               />
             </button>
 
-            {/* Accordion Content */}
             <AnimatePresence>
               {openIdx === i && (
                 <motion.div
@@ -708,26 +698,24 @@ const PackageTariff = () => {
                   className="overflow-hidden"
                 >
                   <div className="px-6 pb-6">
-                    {/* Table Header */}
-                    <div className="grid grid-cols-4 gap-4 px-4 py-3 mb-1 rounded-xl bg-brand-gold text-brand-dark text-[10px] font-black uppercase tracking-widest">
+                    <div className="grid grid-cols-4 gap-4 px-4 py-3 mb-1 rounded-xl bg-brand-gold text-brand-black text-[10px] font-black uppercase tracking-widest">
                       <span>Duration</span>
                       <span>Included Km</span>
                       <span>Rate</span>
                       <span className="text-right">Book</span>
                     </div>
-                    {/* Table Rows */}
                     {vehicle.packages.map((pkg, j) => (
                       <div
                         key={j}
-                        className={`grid grid-cols-4 gap-4 px-4 py-3.5 rounded-xl text-sm ${j % 2 === 0 ? 'bg-gray-50' : ''} hover:bg-gray-100 transition-colors`}
+                        className={`grid grid-cols-4 gap-4 px-4 py-3.5 rounded-xl text-sm ${j % 2 === 0 ? 'bg-white/[0.03]' : ''} hover:bg-white/[0.06] transition-colors`}
                       >
-                        <span className="text-gray-600 font-medium text-xs">{pkg.days}</span>
-                        <span className="text-gray-500 font-medium text-xs">{pkg.km}</span>
+                        <span className="text-white/70 font-medium text-xs">{pkg.days}</span>
+                        <span className="text-white/50 font-medium text-xs">{pkg.km}</span>
                         <span className="text-brand-gold font-bold text-xs">{pkg.rate}</span>
                         <div className="text-right">
                           <a
                             href={`https://wa.me/917559917686?text=I'm interested in ${vehicle.name} - ${pkg.days} package`}
-                            className="inline-flex items-center gap-1.5 bg-brand-gold text-brand-dark text-[9px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg hover:bg-brand-gold-light transition-all"
+                            className="inline-flex items-center gap-1.5 bg-brand-gold text-brand-black text-[9px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg hover:bg-brand-gold-light transition-all"
                           >
                             Book
                           </a>
@@ -750,7 +738,7 @@ const CarsShowcase = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="tariff" className="py-32 bg-gray-50 relative">
+    <section id="tariff" className="py-32 bg-brand-black-light relative">
       <div className="section-title-bg">FLEET</div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -767,7 +755,7 @@ const CarsShowcase = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              className="group bg-white border border-gray-200 rounded-3xl overflow-hidden hover:border-brand-gold/30 transition-all duration-500 shadow-sm hover:shadow-xl"
+              className="group bg-brand-black border border-white/5 rounded-3xl overflow-hidden hover:border-brand-gold/30 transition-all duration-500"
             >
               <div className="relative h-56 overflow-hidden">
                 <img
@@ -776,31 +764,31 @@ const CarsShowcase = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-brand-dark/70 backdrop-blur-md text-brand-gold text-[10px] font-black uppercase tracking-[0.15em] rounded-full">
+                  <span className="px-3 py-1 bg-brand-black/70 backdrop-blur-md text-brand-gold text-[10px] font-black uppercase tracking-[0.15em] rounded-full">
                     {vehicle.type}
                   </span>
                 </div>
               </div>
 
               <div className="p-5">
-                <h3 className="text-lg font-display font-black uppercase tracking-tight text-brand-dark mb-3">{vehicle.name}</h3>
-                <div className="flex items-center gap-3 mb-5 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+                <h3 className="text-lg font-display font-black uppercase tracking-tight text-white mb-3">{vehicle.name}</h3>
+                <div className="flex items-center gap-3 mb-5 text-white/50 text-[10px] font-bold uppercase tracking-widest">
                   <span className="flex items-center gap-1"><Users size={12} /> {vehicle.seats} Seats</span>
-                  <span className="w-1 h-1 rounded-full bg-gray-300" />
+                  <span className="w-1 h-1 rounded-full bg-white/20" />
                   <span className="flex items-center gap-1"><ShieldCheck size={12} /> AC</span>
                 </div>
                 <div className="flex gap-3">
                   <a
                     href={`https://wa.me/917559917686?text=I'm interested in booking a ${vehicle.name}`}
-                    className="flex-1 py-3.5 bg-brand-gold text-brand-dark text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-2 hover:bg-brand-gold-light transition-all duration-300"
+                    className="flex-1 py-3.5 bg-brand-gold text-brand-black text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-2 hover:bg-brand-gold-light transition-all duration-300"
                   >
                     Book Now
                   </a>
                   <button
                     onClick={() => navigate(`/tariff?vehicle=${vehicle.id}`)}
-                    className="flex-1 py-3.5 bg-gray-100 border border-gray-200 text-brand-dark text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-2 hover:bg-gray-200 transition-all duration-300"
+                    className="flex-1 py-3.5 bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 transition-all duration-300"
                   >
                     View Tariff
                   </button>
@@ -816,17 +804,9 @@ const CarsShowcase = () => {
 
 // Tariff page full section with filters + accordion
 const TariffSection = () => {
-  const [activeType, setActiveType] = useState('All');
-  const types = ['All', 'Sedan', 'MPV', 'Van', 'Coach'];
-
-  const filteredVehicles = activeType === 'All'
-    ? VEHICLES
-    : VEHICLES.filter(v => v.type.includes(activeType));
-
   return (
-    <section className="py-16 bg-gray-50 relative">
+    <section className="py-16 bg-brand-black-light relative">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Package Tariff Accordion */}
         <PackageTariff />
       </div>
     </section>
@@ -846,11 +826,11 @@ const TrustSection = () => {
   ];
 
   return (
-    <section id="about" className="py-32 bg-white relative overflow-hidden">
+    <section id="about" className="py-32 bg-brand-black relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div className="relative">
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
               <img
                 src="https://res.cloudinary.com/db41bfixa/image/upload/v1772456386/young-family-with-little-son-walking-bridge-by-river_juff47.jpg"
                 alt="Kerala Tourism"
@@ -860,13 +840,13 @@ const TrustSection = () => {
             </div>
             <div className="absolute -bottom-10 -right-10 bg-brand-gold p-10 rounded-3xl shadow-2xl max-w-xs hidden md:block">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-brand-dark rounded-2xl flex items-center justify-center text-brand-gold font-black text-2xl">5.0</div>
+                <div className="w-14 h-14 bg-brand-black rounded-2xl flex items-center justify-center text-brand-gold font-black text-2xl">5.0</div>
                 <div>
-                  <div className="flex text-brand-dark"><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /></div>
-                  <p className="text-[10px] font-black text-brand-dark/60 uppercase tracking-[0.2em]">Google Reviews</p>
+                  <div className="flex text-brand-black"><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /></div>
+                  <p className="text-[10px] font-black text-brand-black/60 uppercase tracking-[0.2em]">Google Reviews</p>
                 </div>
               </div>
-              <p className="text-brand-dark font-bold leading-relaxed italic text-sm">
+              <p className="text-brand-black font-bold leading-relaxed italic text-sm">
                 "From misty hills to peaceful backwaters, every journey in Kerala deserves comfort."
               </p>
             </div>
@@ -878,18 +858,18 @@ const TrustSection = () => {
               Safe & Easy <br />
               <span className="text-stroke">Family Travel</span>
             </h2>
-            <p className="text-gray-400 text-lg mb-12 leading-relaxed font-medium">
+            <p className="text-white/40 text-lg mb-12 leading-relaxed font-medium">
               Best Taxi Service in Kochi for International Travelers, North Indians & Tourists. Trusted, professional cab services tailored for airport transfers, city tours, and long-distance journeys.
             </p>
             <div className="grid sm:grid-cols-2 gap-12">
               {features.map((f, i) => (
                 <div key={i} className="group flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-brand-gold border border-gray-200 group-hover:bg-brand-gold group-hover:text-brand-dark transition-all duration-500">
+                  <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
                     <CheckCircle2 size={24} />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-brand-dark mb-2 uppercase tracking-tight text-sm group-hover:text-brand-gold transition-colors">{f.title}</h4>
-                    <p className="text-[11px] text-gray-400 font-medium leading-relaxed group-hover:text-gray-600 transition-colors">{f.desc}</p>
+                    <h4 className="font-display font-bold text-white mb-2 uppercase tracking-tight text-sm group-hover:text-brand-gold transition-colors">{f.title}</h4>
+                    <p className="text-[11px] text-white/30 font-medium leading-relaxed group-hover:text-white/50 transition-colors">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -903,7 +883,7 @@ const TrustSection = () => {
 
 const CallToAction = () => {
   return (
-    <section className="py-40 bg-brand-dark relative overflow-hidden">
+    <section className="py-40 bg-brand-black relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1920"
@@ -911,7 +891,7 @@ const CallToAction = () => {
           className="w-full h-full object-cover opacity-20 grayscale"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 text-center">
@@ -922,7 +902,7 @@ const CallToAction = () => {
           className="max-w-5xl mx-auto"
         >
           <span className="text-brand-gold font-black uppercase tracking-[0.5em] text-[10px] mb-8 block">Ready to Travel in Kerala?</span>
-          <h2 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tight mb-12 leading-none text-white">
+          <h2 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tight mb-12 leading-none">
             Book Your Ride <br />
             <span className="text-stroke-gold">With Travel Chief</span>
           </h2>
@@ -938,7 +918,7 @@ const CallToAction = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-8">
             <a
               href="tel:+917559917686"
-              className="group relative w-full md:w-auto px-12 py-6 bg-brand-gold text-brand-dark text-xs font-black uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95"
+              className="group relative w-full md:w-auto px-12 py-6 bg-brand-gold text-brand-black text-xs font-black uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95"
             >
               <span className="relative z-10 flex items-center justify-center gap-3">
                 <Phone size={20} /> Call Now
@@ -960,7 +940,7 @@ const CallToAction = () => {
 
 const Destinations = () => {
   return (
-    <section id="packages" className="py-32 bg-white relative">
+    <section id="packages" className="py-32 bg-brand-black relative">
       <div className="section-title-bg">TRAVEL</div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -971,7 +951,7 @@ const Destinations = () => {
               Popular <span className="text-stroke">Destinations</span>
             </h2>
           </div>
-          <p className="text-gray-400 max-w-sm text-sm font-medium leading-relaxed">
+          <p className="text-white/40 max-w-sm text-sm font-medium leading-relaxed">
             Discover the most breathtaking locations in Kerala with our curated tour packages.
           </p>
         </div>
@@ -981,7 +961,7 @@ const Destinations = () => {
             <motion.div
               key={i}
               whileHover={{ y: -10 }}
-              className="relative h-[450px] rounded-3xl overflow-hidden group cursor-pointer border border-gray-200 shadow-sm"
+              className="relative h-[450px] rounded-3xl overflow-hidden group cursor-pointer border border-white/10"
             >
               <img
                 src={dest.image}
@@ -989,7 +969,7 @@ const Destinations = () => {
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
               <div className="absolute inset-0 flex flex-col justify-end p-10">
                 <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.3em] mb-2 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-500">
@@ -1076,7 +1056,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-32 bg-gray-50 relative overflow-hidden">
+    <section className="py-32 bg-brand-black relative overflow-hidden">
       <div className="section-title-bg">Stories</div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -1092,7 +1072,7 @@ const Stats = () => {
               <div className="text-5xl md:text-7xl font-display font-black text-brand-gold mb-4 tracking-tighter group-hover:scale-110 transition-transform duration-500">
                 <CountUp end={stat.end} suffix={stat.suffix} />
               </div>
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 group-hover:text-gray-600 transition-colors">
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30 group-hover:text-white/50 transition-colors">
                 {stat.label}
               </p>
             </div>
@@ -1118,7 +1098,7 @@ const Stats = () => {
                 transition={{ delay: i * 0.15, duration: 0.6, ease: 'easeOut' }}
                 className={`${cardStyles[i]} hover:!rotate-0 hover:!translate-y-0 transition-all duration-500 group cursor-default`}
               >
-                <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 hover:border-brand-gold/30 transition-all duration-500 shadow-xl hover:shadow-brand-gold/5">
+                <div className="bg-white/[0.03] rounded-3xl overflow-hidden border border-white/10 hover:border-brand-gold/30 transition-all duration-500 shadow-2xl hover:shadow-brand-gold/5">
                   {/* Photo */}
                   <div className="relative h-56 sm:h-64 overflow-hidden">
                     <img
@@ -1126,9 +1106,9 @@ const Stats = () => {
                       alt={review.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 via-transparent to-transparent" />
                     <div className="absolute top-4 left-4">
-                      <span className="bg-brand-gold text-brand-dark text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg">
+                      <span className="bg-brand-gold text-brand-black text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg">
                         {review.type}
                       </span>
                     </div>
@@ -1140,14 +1120,14 @@ const Stats = () => {
                         <Star key={j} size={14} className="fill-brand-gold text-brand-gold" />
                       ))}
                     </div>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-5 italic">
+                    <p className="text-white/50 text-sm leading-relaxed mb-5 italic">
                       &ldquo;{review.quote}&rdquo;
                     </p>
-                    <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+                    <div className="flex items-center gap-3 pt-4 border-t border-white/5">
                       <div className="w-8 h-8 rounded-full bg-brand-gold/20 flex items-center justify-center">
                         <Users size={14} className="text-brand-gold" />
                       </div>
-                      <p className="text-brand-dark font-display font-bold text-sm tracking-wide">{review.name}</p>
+                      <p className="text-white font-display font-bold text-sm tracking-wide">{review.name}</p>
                     </div>
                   </div>
                 </div>
@@ -1164,7 +1144,7 @@ const FAQ = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-32 bg-white relative">
+    <section id="faq" className="py-32 bg-brand-black relative">
       <div className="section-title-bg">FAQ</div>
 
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
@@ -1177,15 +1157,15 @@ const FAQ = () => {
 
         <div className="space-y-4">
           {FAQS.map((faq, i) => (
-            <div key={i} className="bg-white rounded-3xl overflow-hidden border border-gray-200 transition-all hover:border-gray-300">
+            <div key={i} className="bg-white/5 rounded-3xl overflow-hidden border border-white/5 transition-all hover:border-white/10">
               <button
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
                 className="w-full p-8 text-left flex justify-between items-center group"
               >
-                <span className={`font-display font-bold uppercase tracking-tight transition-colors ${openIdx === i ? 'text-brand-gold' : 'text-gray-600 group-hover:text-brand-dark'}`}>
+                <span className={`font-display font-bold uppercase tracking-tight transition-colors ${openIdx === i ? 'text-brand-gold' : 'text-white/70 group-hover:text-white'}`}>
                   {faq.q}
                 </span>
-                <div className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all ${openIdx === i ? 'bg-brand-gold text-brand-dark' : 'bg-gray-100 text-gray-400'}`}>
+                <div className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all ${openIdx === i ? 'bg-brand-gold text-brand-black' : 'bg-white/5 text-white/40'}`}>
                   <ChevronDown size={20} className={`transition-transform duration-500 ${openIdx === i ? 'rotate-180' : ''}`} />
                 </div>
               </button>
@@ -1197,7 +1177,7 @@ const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     className="overflow-hidden"
                   >
-                    <div className="p-8 pt-0 text-gray-500 font-medium leading-relaxed border-t border-gray-200">
+                    <div className="p-8 pt-0 text-white/40 font-medium leading-relaxed border-t border-white/5">
                       {faq.a}
                     </div>
                   </motion.div>
@@ -1213,7 +1193,7 @@ const FAQ = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 bg-gray-50 relative">
+    <section id="contact" className="py-32 bg-brand-black-light relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24">
           <div>
@@ -1225,39 +1205,38 @@ const Contact = () => {
 
             <div className="space-y-10">
               <div className="flex gap-8 group">
-                <div className="w-16 h-16 bg-gray-100 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-gray-200 group-hover:bg-brand-gold group-hover:text-brand-dark transition-all duration-500">
+                <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
                   <MapPin size={28} />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-gray-400">Location</h4>
-                  <p className="text-brand-dark font-display font-bold text-xl">Palarivattom, Kochi, Kerala</p>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-white/30">Location</h4>
+                  <p className="text-white font-display font-bold text-xl">Palarivattom, Kochi, Kerala</p>
                 </div>
               </div>
               <div className="flex gap-8 group">
-                <div className="w-16 h-16 bg-gray-100 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-gray-200 group-hover:bg-brand-gold group-hover:text-brand-dark transition-all duration-500">
+                <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
                   <Phone size={28} />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-gray-400">Contact</h4>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-white/30">Contact</h4>
                   <p className="text-brand-gold font-display font-bold text-xl">+91 755 991 7686</p>
                   <p className="text-brand-gold font-display font-bold text-xl">+91 623 857 4412</p>
                 </div>
               </div>
               <div className="flex gap-8 group">
-                <div className="w-16 h-16 bg-gray-100 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-gray-200 group-hover:bg-brand-gold group-hover:text-brand-dark transition-all duration-500">
+                <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
                   <Mail size={28} />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-gray-400">Email</h4>
-                  <p className="text-brand-dark font-display font-bold text-xl">support@travelchief.in</p>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-white/30">Email</h4>
+                  <p className="text-white font-display font-bold text-xl">support@travelchief.in</p>
                 </div>
               </div>
             </div>
 
           </div>
 
-          <div className="relative rounded-3xl overflow-hidden border border-gray-200 shadow-2xl group">
-            {/* Map */}
+          <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2!2d76.3081!3d9.9963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTknNDYuNyJOIDc2wrAxOCcyOS4yIkU!5e0!3m2!1sen!2sin!4v1700000000000"
               className="w-full h-[500px] lg:h-full min-h-[400px] border-0"
@@ -1266,23 +1245,22 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="Travel Chief Location"
             />
-            {/* Floating card overlay */}
             <div className="absolute bottom-6 left-6 right-6 md:right-auto md:max-w-xs">
-              <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 border border-gray-200 shadow-2xl">
+              <div className="bg-brand-black/90 backdrop-blur-xl rounded-2xl p-6 border border-white/10 shadow-2xl">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-brand-gold rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin size={18} className="text-brand-dark" />
+                    <MapPin size={18} className="text-brand-black" />
                   </div>
                   <div>
-                    <h4 className="text-brand-dark font-display font-bold text-sm">Travel Chief</h4>
-                    <p className="text-gray-400 text-xs">Palarivattom, Kochi</p>
+                    <h4 className="text-white font-display font-bold text-sm">Travel Chief</h4>
+                    <p className="text-white/40 text-xs">Palarivattom, Kochi</p>
                   </div>
                 </div>
                 <a
                   href="https://maps.app.goo.gl/ege6SDQWYm55RYEX6?g_st=iw"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-brand-gold text-brand-dark py-3 rounded-xl font-black text-[10px] uppercase tracking-[0.15em] hover:bg-brand-gold-light transition-all"
+                  className="flex items-center justify-center gap-2 w-full bg-brand-gold text-brand-black py-3 rounded-xl font-black text-[10px] uppercase tracking-[0.15em] hover:bg-brand-gold-light transition-all"
                 >
                   <ArrowRight size={14} />
                   Get Directions
@@ -1298,7 +1276,7 @@ const Contact = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-dark pt-40 pb-20 relative overflow-hidden">
+    <footer className="bg-brand-black text-white pt-40 pb-20 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
           <div className="col-span-1 lg:col-span-1">
@@ -1307,8 +1285,8 @@ const Footer = () => {
               Kochi's most reliable cab and tour provider. We specialize in airport transfers, local city rides, and customized Kerala tour packages.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all duration-500 border border-white/10"><MessageCircle size={20} /></a>
-              <a href="#" className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all duration-500 border border-white/10"><Star size={20} /></a>
+              <a href="#" className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-brand-gold hover:text-brand-black transition-all duration-500 border border-white/10"><MessageCircle size={20} /></a>
+              <a href="#" className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-brand-gold hover:text-brand-black transition-all duration-500 border border-white/10"><Star size={20} /></a>
             </div>
           </div>
 
@@ -1377,10 +1355,10 @@ const FloatingButtons = () => {
         href="tel:+917559917686"
         className="group relative flex items-center justify-end"
       >
-        <span className="absolute right-full mr-3 bg-brand-dark/90 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none shadow-xl">
+        <span className="absolute right-full mr-3 bg-brand-black/90 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none shadow-xl">
           Call Now
         </span>
-        <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] group-hover:scale-110 group-hover:border-brand-gold/40 transition-all duration-300">
+        <div className="w-14 h-14 rounded-2xl bg-brand-black-lighter border border-white/10 flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.5)] group-hover:scale-110 group-hover:border-brand-gold/40 transition-all duration-300">
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-brand-gold">
             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
           </svg>
@@ -1391,7 +1369,7 @@ const FloatingButtons = () => {
         href="https://wa.me/917559917686"
         className="group relative flex items-center justify-end"
       >
-        <span className="absolute right-full mr-3 bg-brand-dark/90 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none shadow-xl">
+        <span className="absolute right-full mr-3 bg-brand-black/90 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none shadow-xl">
           WhatsApp Us
         </span>
         <div className="w-14 h-14 rounded-2xl bg-[#25D366] flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.3)] group-hover:scale-110 group-hover:shadow-[0_8px_40px_rgba(37,211,102,0.5)] transition-all duration-300">
@@ -1428,7 +1406,6 @@ const TariffPage = () => {
     const params = new URLSearchParams(location.search);
     const vehicleId = params.get('vehicle');
     if (vehicleId) {
-      // Scroll to the vehicle card after render
       setTimeout(() => {
         const el = document.getElementById(`vehicle-${vehicleId}`);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1440,15 +1417,14 @@ const TariffPage = () => {
 
   return (
     <>
-      {/* Page Header */}
-      <section className="pt-36 pb-8 bg-gray-50 relative overflow-hidden">
+      <section className="pt-36 pb-8 bg-brand-black-light relative overflow-hidden">
         <div className="section-title-bg">TARIFF</div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Our Fleet</span>
           <h1 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-4">
             Cabs & <span className="text-stroke-gold">Tariff</span>
           </h1>
-          <p className="text-gray-400 max-w-xl mx-auto font-medium">
+          <p className="text-white/40 max-w-xl mx-auto font-medium">
             Choose from our wide range of well-maintained vehicles for your Kerala journey.
           </p>
         </div>
@@ -1472,33 +1448,28 @@ const ScrollRoad = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Road height (track area for car), minus car size
   const roadTop = 80;
   const roadBottom = 80;
   const carSize = 32;
 
   return (
     <div className="fixed right-2 top-0 bottom-0 z-40 w-8 hidden lg:flex flex-col items-center pointer-events-none">
-      {/* Road track */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 w-[6px] bg-brand-dark/[0.06] rounded-full"
+        className="absolute left-1/2 -translate-x-1/2 w-[6px] bg-white/[0.06] rounded-full"
         style={{ top: roadTop, bottom: roadBottom }}
       >
-        {/* Dashed center line */}
         <div
           className="absolute left-1/2 -translate-x-1/2 w-[1px] h-full"
           style={{
             backgroundImage: 'repeating-linear-gradient(to bottom, rgba(212,175,55,0.25) 0px, rgba(212,175,55,0.25) 8px, transparent 8px, transparent 20px)',
           }}
         />
-        {/* Scroll progress fill */}
         <div
           className="absolute left-0 top-0 w-full bg-brand-gold/10 rounded-full transition-[height] duration-100"
           style={{ height: `${progress * 100}%` }}
         />
       </div>
 
-      {/* Taxi car */}
       <div
         className="absolute left-1/2 -translate-x-1/2 transition-[top] duration-100 ease-out"
         style={{
@@ -1506,28 +1477,19 @@ const ScrollRoad = () => {
         }}
       >
         <div className="relative flex flex-col items-center">
-          {/* Headlight glow */}
           <div
             className="absolute -bottom-3 w-3 h-6 rounded-full opacity-60 blur-sm"
             style={{ background: 'radial-gradient(ellipse, rgba(212,175,55,0.6), transparent)' }}
           />
-          {/* Car SVG - top-down taxi */}
           <svg width={carSize} height={carSize} viewBox="0 0 32 32" fill="none" className="drop-shadow-lg">
-            {/* Body */}
             <rect x="8" y="4" width="16" height="24" rx="6" fill="#D4AF37" />
-            {/* Roof / cabin */}
             <rect x="10" y="9" width="12" height="10" rx="3" fill="#0A0A0A" opacity="0.6" />
-            {/* Windshield */}
             <rect x="11" y="6" width="10" height="4" rx="2" fill="#0A0A0A" opacity="0.4" />
-            {/* Rear window */}
             <rect x="11" y="22" width="10" height="3" rx="1.5" fill="#0A0A0A" opacity="0.4" />
-            {/* Left wheels */}
             <rect x="5" y="8" width="4" height="5" rx="2" fill="#1F1F1F" />
             <rect x="5" y="19" width="4" height="5" rx="2" fill="#1F1F1F" />
-            {/* Right wheels */}
             <rect x="23" y="8" width="4" height="5" rx="2" fill="#1F1F1F" />
             <rect x="23" y="19" width="4" height="5" rx="2" fill="#1F1F1F" />
-            {/* Taxi light on top */}
             <rect x="13" y="12" width="6" height="3" rx="1.5" fill="#F4D03F" />
           </svg>
         </div>
