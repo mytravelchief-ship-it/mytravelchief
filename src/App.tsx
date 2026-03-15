@@ -623,7 +623,7 @@ const Services = () => {
             <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">What We Offer</span>
             <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">
               Premium Travel <br />
-              <span className="text-stroke">Solutions</span>
+              <span className="text-stroke-gold">Solutions</span>
             </h2>
           </div>
           <p className="text-white/40 max-w-sm text-sm font-medium leading-relaxed">
@@ -1072,7 +1072,7 @@ const TrustSection = () => {
             <span className="text-brand-gold font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Why Choose Travel Chief?</span>
             <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-10 leading-none">
               Safe & Easy <br />
-              <span className="text-stroke">Family Travel</span>
+              <span className="text-stroke-gold">Family Travel</span>
             </h2>
             <p className="text-white/40 text-lg mb-12 leading-relaxed font-medium">
               Best Taxi Service in Kochi for International Travelers, North Indians & Tourists. Trusted, professional cab services tailored for airport transfers, city tours, and long-distance journeys.
@@ -1164,7 +1164,7 @@ const Destinations = () => {
           <div className="max-w-2xl">
             <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Explore Kerala</span>
             <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">
-              Popular <span className="text-stroke">Destinations</span>
+              Popular <span className="text-stroke-gold">Destinations</span>
             </h2>
           </div>
           <p className="text-white/40 max-w-sm text-sm font-medium leading-relaxed">
