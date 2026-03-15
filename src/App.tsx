@@ -852,7 +852,12 @@ const PackageTariff = ({ defaultOpenId }: { defaultOpenId?: string | null }) => 
   useEffect(() => {
     if (defaultIdx >= 0 && itemRefs.current[defaultIdx]) {
       setTimeout(() => {
-        itemRefs.current[defaultIdx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const element = itemRefs.current[defaultIdx];
+        if (element) {
+          const navbarHeight = 100;
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: elementPosition - navbarHeight, behavior: 'smooth' });
+        }
       }, 300);
     }
   }, [defaultIdx]);
