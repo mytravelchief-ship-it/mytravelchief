@@ -356,13 +356,20 @@ const Logo = ({ light = false, className = "" }: { light?: boolean; className?: 
   );
 };
 
+// Helper function to scroll to element with navbar offset
+const scrollToElement = (el: HTMLElement) => {
+  const navbarHeight = 100;
+  const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top: elementPosition - navbarHeight, behavior: 'smooth' });
+};
+
 // Helper: scroll to hash or navigate to home + hash
 const useScrollToHash = () => {
   const location = useLocation();
   useEffect(() => {
     if (location.hash) {
       const el = document.getElementById(location.hash.slice(1));
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
+      if (el) setTimeout(() => scrollToElement(el), 100);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -388,7 +395,7 @@ const NavLink = ({ name, href, onClick, children }: { name: string; href: string
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         const el = document.getElementById(href.slice(1));
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) scrollToElement(el);
       }
     } else {
       navigate('/' + (href === '#' ? '' : href));
@@ -863,10 +870,10 @@ const PackageTariff = ({ defaultOpenId }: { defaultOpenId?: string | null }) => 
   }, [defaultIdx]);
 
   return (
-    <div className="mt-24">
-      <div className="text-center mb-14">
-        <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Tour Packages</span>
-        <h3 className="text-3xl md:text-5xl font-display font-black uppercase tracking-tight">
+    <div className="mt-8">
+      <div className="text-center mb-6">
+        <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-2 block">Tour Packages</span>
+        <h3 className="text-2xl md:text-4xl font-display font-black uppercase tracking-tight">
           Package <span className="text-stroke-gold">Rates</span>
         </h3>
       </div>
@@ -1642,7 +1649,7 @@ const TariffPage = () => {
 
   return (
     <>
-      <section className="pt-36 pb-8 bg-brand-black-light relative overflow-hidden">
+      <section className="pt-36 pb-4 bg-brand-black-light relative overflow-hidden">
         <div className="section-title-bg">TARIFF</div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Our Fleet</span>
