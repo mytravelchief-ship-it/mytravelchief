@@ -607,7 +607,7 @@ const Hero = () => {
 
 const Services = () => {
   return (
-    <section id="services" className="py-12 bg-brand-black relative overflow-hidden">
+    <section id="services" className="py-8 bg-brand-black relative overflow-hidden">
       <div className="section-title-bg">SERVICES</div>
 
       <div className="container mx-auto px-2 relative z-10">
@@ -624,7 +624,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5">
           {SERVICES.map((service, index) => (
             <motion.div
               key={service.title}
@@ -632,18 +632,18 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative bg-brand-black p-10 hover:bg-brand-black-light transition-all duration-500"
+              className="group relative bg-brand-black p-5 sm:p-6 lg:p-8 hover:bg-brand-black-light transition-all duration-500"
             >
-              <div className="w-16 h-16 bg-brand-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
-                <service.icon size={32} />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
+                <service.icon size={24} className="sm:w-7 sm:h-7" />
               </div>
-              <h3 className="text-xl font-display font-bold uppercase tracking-tight mb-4 group-hover:text-brand-gold transition-colors">
+              <h3 className="text-base sm:text-lg font-display font-bold uppercase tracking-tight mb-2 group-hover:text-brand-gold transition-colors">
                 {service.title}
               </h3>
-              <p className="text-white/40 text-sm leading-relaxed mb-8 group-hover:text-white/60 transition-colors">
+              <p className="text-white/40 text-xs sm:text-sm leading-relaxed mb-4 group-hover:text-white/60 transition-colors">
                 {service.description}
               </p>
-              <a href={service.link} className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-gold opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+              <a href={service.link} className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-gold opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all md:translate-y-2 md:group-hover:translate-y-0">
                 Learn More <ArrowRight size={14} />
               </a>
             </motion.div>
@@ -942,10 +942,10 @@ const CarsShowcase = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="tariff" className="py-10 bg-brand-black-light relative">
+    <section id="tariff" className="py-6 bg-brand-black-light relative">
       <div className="section-title-bg">FLEET</div>
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-6">
           <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Our Fleet</span>
           <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">
             Our <span className="text-stroke-gold">Vehicles</span>
