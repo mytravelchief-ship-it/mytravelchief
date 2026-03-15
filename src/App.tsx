@@ -123,6 +123,46 @@ const VEHICLES: Vehicle[] = [
     }
   },
   {
+    id: 'tempo-9-12',
+    name: 'Tempo Traveler 9-12 Seater',
+    type: 'Van',
+    seats: 12,
+    label: '9-12 Seats',
+    image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527901/Tempo_Traveller_PI_s6rq8d.png',
+    description: 'Perfect for medium-sized groups and family trips with comfortable seating.',
+    tariffs: {
+      airport: [
+        { route: 'Kochi Airport to City', price: '₹3,500' },
+        { route: 'Airport to Munnar', price: '₹7,000' }
+      ],
+      local: [
+        { package: '4 hrs / 40 km', price: '₹4,000' },
+        { package: '8 hrs / 80 km', price: '₹6,000' }
+      ],
+      outstation: { rate: '₹22/km', minKm: '250km', bata: '₹800/day' }
+    }
+  },
+  {
+    id: 'tempo-14-17',
+    name: 'Tempo Traveler 14-17 Seater',
+    type: 'Van',
+    seats: 17,
+    label: '14-17 Seats',
+    image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527902/tempo-traveller-in-jodhpur_lfgtip.jpg',
+    description: 'Spacious tempo traveler ideal for larger groups and extended tours.',
+    tariffs: {
+      airport: [
+        { route: 'Kochi Airport to City', price: '₹4,000' },
+        { route: 'Airport to Munnar', price: '₹8,000' }
+      ],
+      local: [
+        { package: '4 hrs / 40 km', price: '₹5,000' },
+        { package: '8 hrs / 80 km', price: '₹7,000' }
+      ],
+      outstation: { rate: '₹25/km', minKm: '300km', bata: '₹900/day' }
+    }
+  },
+  {
     id: 'tempo',
     name: 'Tempo Traveler',
     type: 'Van',
@@ -148,7 +188,7 @@ const VEHICLES: Vehicle[] = [
     type: 'Luxury Van',
     seats: 10,
     label: '08-10 Seats',
-    image: 'https://mallucabscochin.com/image/taxi/mallu-cabs-luxury-tempo%20-traveler.jpg',
+    image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527527/Urbania-Tempo-Traveller-in-Jodhpur_ktlsrh.webp',
     description: 'Premium seating for smaller groups who want extra comfort.',
     tariffs: {
       airport: [
@@ -168,7 +208,7 @@ const VEHICLES: Vehicle[] = [
     type: 'Premium Van',
     seats: 16,
     label: '12-16 Seats',
-    image: 'https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&q=80&w=800',
+    image: 'https://mallucabscochin.com/image/taxi/mallu-cabs-luxury-tempo%20-traveler.jpg',
     description: 'The most modern and comfortable large van available for group travel.',
     tariffs: {
       airport: [
@@ -188,7 +228,7 @@ const VEHICLES: Vehicle[] = [
     type: 'Coach',
     seats: 35,
     label: '35 Seats',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527726/bharatbenz-1017-39-seater-medium-duty-staff-bus-1000x1000_kscgva.webp',
     description: 'Premium coach for large groups with comfortable seating and ample luggage space.',
     tariffs: {
       airport: [{ route: 'Airport Transfer', price: '₹8,500' }],
@@ -202,7 +242,7 @@ const VEHICLES: Vehicle[] = [
     type: 'Coach',
     seats: 45,
     label: '45 Seats',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527701/61a8f946c0403_wqngtj.jpg',
     description: 'Luxury glider coach for large corporate groups or wedding parties.',
     tariffs: {
       airport: [{ route: 'Airport Transfer', price: '₹10,500' }],
@@ -216,7 +256,7 @@ const VEHICLES: Vehicle[] = [
     type: 'Bus',
     seats: 49,
     label: '49 Seats',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773528131/pngtree-d-render-of-a-medium-sized-black-city-bus-on-a-image_3772916_nix3bk.jpg',
     description: 'Standard AC bus for large group transportation across Kerala.',
     tariffs: {
       airport: [{ route: 'Airport Transfer', price: '₹12,500' }],
@@ -263,7 +303,10 @@ const DESTINATIONS = [
   { name: 'Thekkady', tagline: 'Wildlife & Spice', image: 'https://travelchief.in/wp-content/uploads/2026/02/Thekkadi.jpg.jpeg' },
   { name: 'Alleppey', tagline: 'Backwater Bliss', image: 'https://travelchief.in/wp-content/uploads/2026/02/Allepey.jpg.jpeg' },
   { name: 'Ponmudi', tagline: 'Golden Peak', image: 'https://travelchief.in/wp-content/uploads/2026/02/Ponmudi.jpg.jpeg' },
-  { name: 'Kochi', tagline: 'Queen of Arabian Sea', image: 'https://travelchief.in/wp-content/uploads/2026/02/Kochi.jpg.jpeg' }
+  { name: 'Kochi', tagline: 'Queen of Arabian Sea', image: 'https://travelchief.in/wp-content/uploads/2026/02/Kochi.jpg.jpeg' },
+  // { name: 'Rameshwaram', tagline: 'Sacred Pilgrimage', image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773313522/1612441298_144275276_2491105017864228_1237678389235436394_n_hble2w.jpg' },
+  { name: 'Madurai', tagline: 'Temple City', image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773313425/a4eb9f56222453823b83e33a17de04c9_wg61ov.jpg' },
+  { name: 'Kanyakumari', tagline: 'Land\'s End', image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773313143/1-Places-to-Visit-in-Kanyakumari_mqzbb0.jpg' }
 ];
 
 const FAQS = [
@@ -294,34 +337,12 @@ const FAQS = [
 const Logo = ({ light = false, className = "" }: { light?: boolean; className?: string }) => {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <div className="relative w-12 h-12 flex items-center justify-center">
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <defs>
-            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#D4AF37" />
-              <stop offset="50%" stopColor="#F4D03F" />
-              <stop offset="100%" stopColor="#9A7D0A" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M 80 20 A 40 40 0 1 0 80 80"
-            fill="none"
-            stroke="url(#goldGradient)"
-            strokeWidth="8"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 45 50 C 60 30 90 40 95 55 C 85 50 75 65 60 75 C 55 65 45 55 45 50 Z"
-            fill="url(#goldGradient)"
-          />
-          <path
-            d="M 75 48 C 80 45 85 45 90 48"
-            fill="none"
-            stroke="#C0C0C0"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
+      <div className="relative w-16 h-16 flex items-center justify-center">
+        <img
+          src="https://res.cloudinary.com/db41bfixa/image/upload/v1772454082/image-removebg-preview_zimjfs.png"
+          alt="Travel Chief Logo"
+          className="w-full h-full object-contain"
+        />
       </div>
       <div className="flex flex-col leading-none text-left">
         <span className={`text-xl font-display font-black uppercase tracking-[-0.05em] ${light ? 'text-white' : 'text-brand-black'}`}>
@@ -586,11 +607,11 @@ const Hero = () => {
 
 const Services = () => {
   return (
-    <section id="services" className="py-32 bg-brand-black relative overflow-hidden">
+    <section id="services" className="py-12 bg-brand-black relative overflow-hidden">
       <div className="section-title-bg">SERVICES</div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24">
+      <div className="container mx-auto px-2 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-5">
           <div className="max-w-2xl">
             <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">What We Offer</span>
             <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">
@@ -635,8 +656,10 @@ const Services = () => {
 
 const PACKAGE_TARIFFS = [
   {
+    id: 'dzire',
     name: 'Swift Dzire / Toyota Etios',
     passengers: 4,
+    extraKm: '14/Km',
     packages: [
       { days: '01 Night / 02 Days', km: '200 Km', rate: '4,600/-' },
       { days: '02 Nights / 03 Days', km: '300 Km', rate: '6,400/-' },
@@ -649,10 +672,190 @@ const PACKAGE_TARIFFS = [
       { days: '09 Nights / 10 Days', km: '1000 Km', rate: '20,000/-' },
     ]
   },
+  {
+    id: 'ertiga',
+    name: 'Suzuki Ertiga',
+    passengers: 6,
+    extraKm: '18/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '5,400/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '7,600/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '10,400/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '13,000/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '15,300/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '17,400/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '19,600/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '21,800/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '24,000/-' },
+    ]
+  },
+  {
+    id: 'innova',
+    name: 'Toyota Innova',
+    passengers: 7,
+    extraKm: '20/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '6,000/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '8,500/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '11,500/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '14,500/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '17,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '19,500/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '22,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '24,500/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '27,000/-' },
+    ]
+  },
+  {
+    id: 'crysta',
+    name: 'Innova Crysta',
+    passengers: 7,
+    extraKm: '22/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '7,000/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '10,000/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '13,500/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '17,000/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '20,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '23,000/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '26,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '29,000/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '32,000/-' },
+    ]
+  },
+  {
+    id: 'tempo-9-12',
+    name: 'Tempo Traveller 12 Seater',
+    passengers: 12,
+    extraKm: '24/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '8,000/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '12,000/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '16,000/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '19,500/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '23,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '26,500/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '30,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '33,500/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '37,000/-' },
+    ]
+  },
+  {
+    id: 'tempo-14-17',
+    name: 'Tempo Traveller 14-17 Seater',
+    passengers: 17,
+    extraKm: '25/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '9,000/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '13,500/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '17,500/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '22,000/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '26,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '30,000/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '34,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '38,000/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '42,000/-' },
+    ]
+  },
+  {
+    id: 'luxury-tempo',
+    name: 'Luxury Tempo Traveller 08-10 Seater',
+    passengers: 10,
+    extraKm: '28/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '12,500/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '18,000/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '24,000/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '29,500/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '35,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '41,000/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '46,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '51,500/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '57,000/-' },
+    ]
+  },
+  {
+    id: 'urbania',
+    name: 'Force Urbania 12-16 Seater',
+    passengers: 16,
+    extraKm: '30/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '16,000/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '23,000/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '30,000/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '37,000/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '44,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '51,000/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '58,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '65,000/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '72,000/-' },
+    ]
+  },
+  {
+    id: 'coach-35',
+    name: 'Bharat Benz Premium Coach 35 Seater',
+    passengers: 35,
+    extraKm: '40/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '21,000/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '31,000/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '41,000/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '50,000/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '60,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '69,500/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '79,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '88,500/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '98,000/-' },
+    ]
+  },
+  {
+    id: 'coach-45',
+    name: 'Glider Luxury Coach 45 Seater',
+    passengers: 45,
+    extraKm: '55/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '28,000/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '42,000/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '55,000/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '68,000/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '81,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '94,000/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '1,07,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '1,20,000/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '1,33,000/-' },
+    ]
+  },
+  {
+    id: 'bus-49',
+    name: 'AC 49 Seater Bus',
+    passengers: 49,
+    extraKm: '50/Km',
+    packages: [
+      { days: '01 Night / 02 Days', km: '200 Km', rate: '26,000/-' },
+      { days: '02 Nights / 03 Days', km: '300 Km', rate: '39,000/-' },
+      { days: '03 Nights / 04 Days', km: '400 Km', rate: '51,000/-' },
+      { days: '04 Nights / 05 Days', km: '500 Km', rate: '63,000/-' },
+      { days: '05 Nights / 06 Days', km: '600 Km', rate: '75,000/-' },
+      { days: '06 Nights / 07 Days', km: '700 Km', rate: '87,000/-' },
+      { days: '07 Nights / 08 Days', km: '800 Km', rate: '99,000/-' },
+      { days: '08 Nights / 09 Days', km: '900 Km', rate: '1,11,000/-' },
+      { days: '09 Nights / 10 Days', km: '1000 Km', rate: '1,23,000/-' },
+    ]
+  },
 ];
 
-const PackageTariff = () => {
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
+const PackageTariff = ({ defaultOpenId }: { defaultOpenId?: string | null }) => {
+  const defaultIdx = defaultOpenId ? PACKAGE_TARIFFS.findIndex(v => v.id === defaultOpenId) : -1;
+  const [openIdx, setOpenIdx] = useState<number | null>(defaultIdx >= 0 ? defaultIdx : null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    if (defaultIdx >= 0 && itemRefs.current[defaultIdx]) {
+      setTimeout(() => {
+        itemRefs.current[defaultIdx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+  }, [defaultIdx]);
 
   return (
     <div className="mt-24">
@@ -666,7 +869,8 @@ const PackageTariff = () => {
       <div className="max-w-4xl mx-auto space-y-3">
         {PACKAGE_TARIFFS.map((vehicle, i) => (
           <div
-            key={i}
+            key={vehicle.id}
+            ref={el => { itemRefs.current[i] = el; }}
             className={`rounded-2xl border transition-all duration-300 ${openIdx === i ? 'border-brand-gold/30 bg-brand-black' : 'border-white/5 bg-white/[0.02] hover:border-white/10'}`}
           >
             <button
@@ -679,7 +883,7 @@ const PackageTariff = () => {
                 </span>
                 <div className="text-left">
                   <h4 className="font-display font-bold text-white text-base tracking-tight">{vehicle.name}</h4>
-                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest">{vehicle.passengers} Passengers &middot; AC</span>
+                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest">{vehicle.passengers} Passengers &middot; AC &middot; Extra {vehicle.extraKm}</span>
                 </div>
               </div>
               <ChevronDown
@@ -738,10 +942,10 @@ const CarsShowcase = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="tariff" className="py-32 bg-brand-black-light relative">
+    <section id="tariff" className="py-10 bg-brand-black-light relative">
       <div className="section-title-bg">FLEET</div>
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Our Fleet</span>
           <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">
             Our <span className="text-stroke-gold">Vehicles</span>
@@ -803,11 +1007,11 @@ const CarsShowcase = () => {
 };
 
 // Tariff page full section with filters + accordion
-const TariffSection = () => {
+const TariffSection = ({ vehicleId }: { vehicleId?: string | null }) => {
   return (
-    <section className="py-16 bg-brand-black-light relative">
+    <section className="py-10 bg-brand-black-light relative">
       <div className="container mx-auto px-6 relative z-10">
-        <PackageTariff />
+        <PackageTariff defaultOpenId={vehicleId} />
       </div>
     </section>
   );
@@ -826,7 +1030,7 @@ const TrustSection = () => {
   ];
 
   return (
-    <section id="about" className="py-32 bg-brand-black relative overflow-hidden">
+    <section id="about" className="py-10 bg-brand-black relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div className="relative">
@@ -883,7 +1087,7 @@ const TrustSection = () => {
 
 const CallToAction = () => {
   return (
-    <section className="py-40 bg-brand-black relative overflow-hidden">
+    <section className="py-20 bg-brand-black relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1920"
@@ -940,11 +1144,11 @@ const CallToAction = () => {
 
 const Destinations = () => {
   return (
-    <section id="packages" className="py-32 bg-brand-black relative">
+    <section id="packages" className="py-10 bg-brand-black relative">
       <div className="section-title-bg">TRAVEL</div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
           <div className="max-w-2xl">
             <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Explore Kerala</span>
             <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">
@@ -1030,22 +1234,40 @@ const CountUp = ({ end, suffix }: { end: number; suffix: string }) => {
 const Stats = () => {
   const reviews = [
     {
-      image: 'https://travelchief.in/wp-content/uploads/2026/02/1104x737.jpg-1024x684.avif',
-      name: 'Rahul & Friends',
-      type: 'Friends Trip',
-      quote: 'Best road trip ever! Our gang had the most amazing time exploring Kerala. The driver knew all the hidden spots!',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773530268/unnamed_5_u1rnyz.webp',
+      name: 'Chanchal Singhal',
+      type: 'Kerala Trip',
+      quote: 'I highly recommend Travel Chief and Jithin to anyone planning a trip to Kerala. Their professionalism, expertise, and warm hospitality made our vacation truly unforgettable. Five stars aren\'t enough - I\'d give them ten if I could!',
     },
     {
-      image: 'https://travelchief.in/wp-content/uploads/2026/02/884x1325.jpg-1024x683.avif',
-      name: 'The Sharma Family',
-      type: 'Family Trip',
-      quote: 'A perfect family vacation! From Munnar hills to Alleppey backwaters, everything was beautifully arranged.',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773530209/unnamed_4_hjikd0.webp',
+      name: 'Mayuri Bhosale',
+      type: 'Kerala Tour',
+      quote: 'I had an amazing experience with the cab service. Our driver, Jitin, was very courteous and knowledgeable. He took us to all the major attractions, providing insightful information about each location. His expertise and friendly demeanor made the tour truly enjoyable. Highly recommend!',
     },
     {
-      image: 'https://travelchief.in/wp-content/uploads/2026/02/663x663.jpg.avif',
-      name: 'Arjun & Priya',
-      type: 'Couple Trip',
-      quote: 'Our honeymoon in Kerala was magical. Travel Chief made it stress-free and romantic. Highly recommend!',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773530048/unnamed_3_jbobz5.webp',
+      name: 'Ankit Verma',
+      type: 'Kerala Trip',
+      quote: 'Very nice trip. Libin Thomas is the best driver we have met. Very humble and very nice person and he knows many beautiful locations on the trip. Travel Chief is very helpful and most affordable and best rates in Kerala.',
+    },
+    {
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773529481/unnamed_r39u04.webp',
+      name: 'Abhishek Joshi',
+      type: 'South India Trip',
+      quote: 'Excellent cab services in south India. We took the cab from Madurai to Kochi covering Rameshwaram, Kanyakumari, Thekkady, Varkala & Munnar. Our driver Mr Rajeesh was like family to us. Thanks Rajeesh ji for making our trip memorable!',
+    },
+    {
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773529488/unnamed_1_t9qllz.webp',
+      name: 'KalyanKumar',
+      type: 'Business Trip',
+      quote: 'I had an excellent experience with my driver. He was punctual, polite, and very professional throughout the ride. The car was clean and comfortable, and he made sure the journey was smooth and safe. I would definitely recommend him!',
+    },
+    {
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773529493/unnamed_2_slfp0v.webp',
+      name: 'Sanjeet Kumar',
+      type: 'Kerala & Tamil Nadu Trip',
+      quote: 'Wonderful trip with Travelchief! Our driver Mr. Umesh was extremely polite, calm, and professional. He had excellent knowledge about all the places we visited. The vehicle was in excellent condition throughout our 10-day journey!',
     }
   ];
 
@@ -1053,10 +1275,13 @@ const Stats = () => {
     'md:-rotate-3 md:translate-y-4',
     'md:rotate-2 md:-translate-y-6',
     'md:-rotate-2 md:translate-y-8',
+    'md:rotate-1 md:translate-y-2',
+    'md:-rotate-1 md:-translate-y-4',
+    'md:rotate-2 md:translate-y-6',
   ];
 
   return (
-    <section className="py-32 bg-brand-black relative overflow-hidden">
+    <section className="py-10 bg-brand-black relative overflow-hidden">
       <div className="section-title-bg">Stories</div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -1144,11 +1369,11 @@ const FAQ = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-32 bg-brand-black relative">
+    <section id="faq" className="py-10 bg-brand-black relative">
       <div className="section-title-bg">FAQ</div>
 
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-10">
           <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Questions</span>
           <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">
             Common <span className="text-stroke-gold">Queries</span>
@@ -1193,7 +1418,7 @@ const FAQ = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 bg-brand-black-light relative">
+    <section id="contact" className="py-10 bg-brand-black-light relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24">
           <div>
@@ -1257,7 +1482,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <a
-                  href="https://maps.app.goo.gl/ege6SDQWYm55RYEX6?g_st=iw"
+                  href="https://maps.app.goo.gl/eZWCyZfe9jYZKhHD9?g_st=iw"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-brand-gold text-brand-black py-3 rounded-xl font-black text-[10px] uppercase tracking-[0.15em] hover:bg-brand-gold-light transition-all"
@@ -1276,9 +1501,9 @@ const Contact = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-black text-white pt-40 pb-20 relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
+    <footer className="bg-brand-black text-white pt-10 relative overflow-hidden">
+      <div className="container mx-auto  relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-20 mb-15">
           <div className="col-span-1 lg:col-span-1">
             <Logo light={true} className="mb-10" />
             <p className="text-white/30 text-sm leading-relaxed mb-10 font-medium max-w-xs">
@@ -1313,7 +1538,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-12 text-brand-gold">Contact</h4>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-10 text-brand-gold">Contact</h4>
             <ul className="space-y-8 text-white/40 text-sm font-medium">
               <li className="flex items-start gap-4">
                 <MapPin size={20} className="text-brand-gold flex-shrink-0" />
@@ -1401,19 +1626,14 @@ const HomePage = () => {
 
 const TariffPage = () => {
   const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const vehicleId = params.get('vehicle');
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const vehicleId = params.get('vehicle');
-    if (vehicleId) {
-      setTimeout(() => {
-        const el = document.getElementById(`vehicle-${vehicleId}`);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 300);
-    } else {
+    if (!vehicleId) {
       window.scrollTo({ top: 0 });
     }
-  }, [location.search]);
+  }, [vehicleId]);
 
   return (
     <>
@@ -1429,7 +1649,7 @@ const TariffPage = () => {
           </p>
         </div>
       </section>
-      <TariffSection />
+      <TariffSection vehicleId={vehicleId} />
     </>
   );
 };
@@ -1453,7 +1673,7 @@ const ScrollRoad = () => {
   const carSize = 32;
 
   return (
-    <div className="fixed right-2 top-0 bottom-0 z-40 w-8 hidden lg:flex flex-col items-center pointer-events-none">
+    <div className="fixed right-1 sm:right-2 top-0 bottom-0 z-40 w-6 sm:w-8 flex flex-col items-center pointer-events-none">
       <div
         className="absolute left-1/2 -translate-x-1/2 w-[6px] bg-white/[0.06] rounded-full"
         style={{ top: roadTop, bottom: roadBottom }}
