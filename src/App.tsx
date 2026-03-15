@@ -617,7 +617,7 @@ const Services = () => {
     <section id="services" className="py-8 bg-brand-black relative overflow-hidden">
       <div className="section-title-bg">SERVICES</div>
 
-      <div className="container mx-auto px-2 relative z-10">
+      <div className="container mx-auto px-8 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-5">
           <div className="max-w-2xl">
             <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">What We Offer</span>
@@ -647,12 +647,9 @@ const Services = () => {
               <h3 className="text-base sm:text-lg font-display font-bold uppercase tracking-tight mb-2 group-hover:text-brand-gold transition-colors">
                 {service.title}
               </h3>
-              <p className="text-white/40 text-xs sm:text-sm leading-relaxed mb-4 group-hover:text-white/60 transition-colors">
+              <p className="text-white/40 text-xs sm:text-sm leading-relaxed group-hover:text-white/60 transition-colors">
                 {service.description}
               </p>
-              <a href={service.link} className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-gold opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all md:translate-y-2 md:group-hover:translate-y-0">
-                Learn More <ArrowRight size={14} />
-              </a>
             </motion.div>
           ))}
         </div>
