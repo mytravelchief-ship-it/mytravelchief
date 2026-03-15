@@ -1418,7 +1418,7 @@ const FAQ = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-10 bg-brand-black-light relative">
+    <section id="contact" className="py-10 px-10 bg-brand-black-light relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24">
           <div>
@@ -1501,7 +1501,7 @@ const Contact = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-black text-white pt-10 relative overflow-hidden">
+    <footer className="bg-brand-black text-white pt-10 px-10 relative overflow-hidden">
       <div className="container mx-auto  relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-20 mb-15">
           <div className="col-span-1 lg:col-span-1">
