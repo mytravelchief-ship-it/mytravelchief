@@ -1418,9 +1418,9 @@ const FAQ = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-10 px-10 bg-brand-black-light relative">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24">
+    <section id="contact" className="py-10 bg-brand-black-light relative">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
           <div>
             <span className="text-brand-gold font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Contact Us</span>
             <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-10 leading-none">
@@ -1428,33 +1428,33 @@ const Contact = () => {
               <span className="text-stroke-gold">Help You?</span>
             </h2>
 
-            <div className="space-y-10">
-              <div className="flex gap-8 group">
-                <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
-                  <MapPin size={28} />
+            <div className="space-y-8">
+              <div className="flex gap-4 sm:gap-8 group">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/5 rounded-2xl sm:rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
+                  <MapPin size={24} className="sm:w-7 sm:h-7" />
                 </div>
                 <div>
                   <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-white/30">Location</h4>
-                  <p className="text-white font-display font-bold text-xl">Palarivattom, Kochi, Kerala</p>
+                  <p className="text-white font-display font-bold text-base sm:text-xl">Palarivattom, Kochi, Kerala</p>
                 </div>
               </div>
-              <div className="flex gap-8 group">
-                <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
-                  <Phone size={28} />
+              <div className="flex gap-4 sm:gap-8 group">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/5 rounded-2xl sm:rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
+                  <Phone size={24} className="sm:w-7 sm:h-7" />
                 </div>
                 <div>
                   <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-white/30">Contact</h4>
-                  <p className="text-brand-gold font-display font-bold text-xl">+91 755 991 7686</p>
-                  <p className="text-brand-gold font-display font-bold text-xl">+91 623 857 4412</p>
+                  <p className="text-brand-gold font-display font-bold text-base sm:text-xl">+91 755 991 7686</p>
+                  <p className="text-brand-gold font-display font-bold text-base sm:text-xl">+91 623 857 4412</p>
                 </div>
               </div>
-              <div className="flex gap-8 group">
-                <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
-                  <Mail size={28} />
+              <div className="flex gap-4 sm:gap-8 group">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/5 rounded-2xl sm:rounded-3xl flex items-center justify-center text-brand-gold flex-shrink-0 border border-white/10 group-hover:bg-brand-gold group-hover:text-brand-black transition-all duration-500">
+                  <Mail size={24} className="sm:w-7 sm:h-7" />
                 </div>
                 <div>
                   <h4 className="text-[10px] font-black uppercase tracking-widest mb-2 text-white/30">Email</h4>
-                  <p className="text-white font-display font-bold text-xl">support@travelchief.in</p>
+                  <p className="text-white font-display font-bold text-base sm:text-xl break-all sm:break-normal">support@travelchief.in</p>
                 </div>
               </div>
             </div>
