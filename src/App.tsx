@@ -1097,16 +1097,6 @@ const TrustSection = () => {
 const CallToAction = () => {
   return (
     <section className="py-20 bg-brand-black relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1920"
-          alt="Taxi Background"
-          className="w-full h-full object-cover opacity-20 grayscale"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black" />
-      </div>
-
       <div className="container mx-auto px-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
