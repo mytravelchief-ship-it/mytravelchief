@@ -128,7 +128,7 @@ const VEHICLES: Vehicle[] = [
       type: 'Van',
       seats: 12,
       label: '09-12 Seats',
-      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527901/Tempo_Traveller_PI_s6rq8d.png',
+      image: 'https://mallucabscochin.com/image/taxi/mallu-cabs-tempo-traveler.png',
       description: 'Perfect for medium-sized groups and family trips with comfortable seating.',
       tariffs: {
          airport: [
@@ -148,7 +148,7 @@ const VEHICLES: Vehicle[] = [
       type: 'Van',
       seats: 17,
       label: '14-17 Seats',
-      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527902/tempo-traveller-in-jodhpur_lfgtip.jpg',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527901/Tempo_Traveller_PI_s6rq8d.png',
       description: 'Spacious tempo traveler ideal for larger groups and extended tours.',
       tariffs: {
          airport: [
@@ -163,12 +163,12 @@ const VEHICLES: Vehicle[] = [
       },
    },
    {
-      id: 'tempo',
-      name: 'Tempo Traveler',
+      id: 'tempo-26',
+      name: '26 Seater Traveller',
       type: 'Van',
       seats: 26,
-      label: '10-26 Seats',
-      image: 'https://mallucabscochin.com/image/taxi/mallu-cabs-tempo-traveler.png',
+      label: '26 Seats',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773527902/tempo-traveller-in-jodhpur_lfgtip.jpg',
       description: 'Ideal for large families or groups of friends exploring Kerala together.',
       tariffs: {
          airport: [
@@ -179,7 +179,7 @@ const VEHICLES: Vehicle[] = [
             { package: '4 hrs / 40 km', price: '₹5,500' },
             { package: '8 hrs / 80 km', price: '₹7,500' },
          ],
-         outstation: { rate: '₹28/km', minKm: '300km', bata: '₹1,000/day' },
+         outstation: { rate: '₹30/km', minKm: '300km', bata: '₹1,000/day' },
       },
    },
    {
@@ -302,26 +302,38 @@ const SERVICES = [
 ];
 
 const DESTINATIONS = [
+   { name: 'Kochi', tagline: 'Queen of Arabian Sea', image: 'https://travelchief.in/wp-content/uploads/2026/02/Kochi.jpg.jpeg' },
    { name: 'Munnar', tagline: 'Misty Hills & Tea Gardens', image: 'https://travelchief.in/wp-content/uploads/2026/02/munn.avif' },
-   { name: 'Wayanad', tagline: 'Nature & Wildlife', image: 'https://travelchief.in/wp-content/uploads/2026/02/Wayanad.jpg.jpeg' },
    {
       name: 'Thekkady',
       tagline: 'Wildlife & Spice',
       image: 'https://travelchief.in/wp-content/uploads/2026/02/Thekkadi.jpg.jpeg',
    },
-   { name: 'Alleppey', tagline: 'Backwater Bliss', image: 'https://travelchief.in/wp-content/uploads/2026/02/Allepey.jpg.jpeg' },
-   { name: 'Ponmudi', tagline: 'Golden Peak', image: 'https://travelchief.in/wp-content/uploads/2026/02/Ponmudi.jpg.jpeg' },
-   { name: 'Kochi', tagline: 'Queen of Arabian Sea', image: 'https://travelchief.in/wp-content/uploads/2026/02/Kochi.jpg.jpeg' },
-   // { name: 'Rameshwaram', tagline: 'Sacred Pilgrimage', image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773313522/1612441298_144275276_2491105017864228_1237678389235436394_n_hble2w.jpg' },
+   // { name: 'Alleppey', tagline: 'Backwater Bliss', image: 'https://travelchief.in/wp-content/uploads/2026/02/Allepey.jpg.jpeg' },
    {
-      name: 'Madurai',
-      tagline: 'Temple City',
-      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773313425/a4eb9f56222453823b83e33a17de04c9_wg61ov.jpg',
+      name: 'Varkala',
+      tagline: 'Where cliffs meet the sea',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773773307/7f45cd864437c4c2e49f829eb649e0e4_nvkaco.jpg',
+   },
+   {
+      name: 'Kovalam ',
+      tagline: 'Beach. Breeze. Bliss',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773773039/kovalam-1723462813_a27ff0e58bab8315e6cc_chkv70.webp',
    },
    {
       name: 'Kanyakumari',
       tagline: "Land's End",
       image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773313143/1-Places-to-Visit-in-Kanyakumari_mqzbb0.jpg',
+   },
+   {
+      name: 'Danushkodi',
+      tagline: 'Sacred Pilgrimage',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773773039/Arichal-Munai_s9ssxy.webp',
+   },
+   {
+      name: 'Madurai',
+      tagline: 'Temple City',
+      image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773313425/a4eb9f56222453823b83e33a17de04c9_wg61ov.jpg',
    },
 ];
 
@@ -818,6 +830,23 @@ const PACKAGE_TARIFFS = [
       ],
    },
    {
+      id: 'tempo-26',
+      name: '26 Seater Traveller',
+      passengers: 26,
+      extraKm: '30/Km',
+      packages: [
+         { days: '01 Night / 02 Days', km: '200 Km', rate: '14,000/-' },
+         { days: '02 Nights / 03 Days', km: '300 Km', rate: '20,000/-' },
+         { days: '03 Nights / 04 Days', km: '400 Km', rate: '26,500/-' },
+         { days: '04 Nights / 05 Days', km: '500 Km', rate: '32,500/-' },
+         { days: '05 Nights / 06 Days', km: '600 Km', rate: '38,500/-' },
+         { days: '06 Nights / 07 Days', km: '700 Km', rate: '44,500/-' },
+         { days: '07 Nights / 08 Days', km: '800 Km', rate: '51,000/-' },
+         { days: '08 Nights / 09 Days', km: '900 Km', rate: '56,500/-' },
+         { days: '09 Nights / 10 Days', km: '1000 Km', rate: '63,000/-' },
+      ],
+   },
+   {
       id: 'luxury-tempo',
       name: 'Luxury Tempo Traveller 08-10 Seater',
       passengers: 10,
@@ -1002,6 +1031,90 @@ const PackageTariff = ({ defaultOpenId }: { defaultOpenId?: string | null }) => 
                </div>
             ))}
          </div>
+
+         {/* Tariff Notes */}
+         <div className="mt-10 max-w-4xl mx-auto">
+            <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6">
+               <h4 className="text-brand-gold font-display font-bold text-sm uppercase tracking-widest mb-4">Important Information</h4>
+               <ul className="space-y-3 text-white/60 text-sm">
+                  <li className="flex items-start gap-3">
+                     <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                     <span>Additional Charges: Parking fee, Road Toll, Interstate Permit.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                     <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                     <span>₹16 will be applicable for each Extra Km for Sedan Cab.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                     <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                     <span>Above Rate will be Changed depending Season.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                     <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                     <span>Kilometre Counting From Cochin Airport to Cochin Airport OR Kilometres Calculation from Garage to Garage.</span>
+                  </li>
+               </ul>
+               <div className="mt-6 p-4 bg-brand-gold/10 rounded-xl border border-brand-gold/20">
+                  <p className="text-brand-gold font-display font-bold text-sm">
+                     The prices displayed here are only for reference purpose. For better pricing, please contact our executive.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   );
+};
+
+// Book Now Button with Call/WhatsApp options
+const BookNowButton = ({ vehicleName }: { vehicleName: string }) => {
+   const [isOpen, setIsOpen] = useState(false);
+   const dropdownRef = useRef<HTMLDivElement>(null);
+
+   useEffect(() => {
+      const handleClickOutside = (event: MouseEvent) => {
+         if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            setIsOpen(false);
+         }
+      };
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+   }, []);
+
+   return (
+      <div className="relative flex-1" ref={dropdownRef}>
+         <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-full py-3.5 bg-brand-gold text-brand-black text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-2 hover:bg-brand-gold-light transition-all duration-300"
+         >
+            Book Now
+         </button>
+         <AnimatePresence>
+            {isOpen && (
+               <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute bottom-full left-0 right-0 mb-2 bg-brand-black border border-white/10 rounded-xl overflow-hidden shadow-xl z-20"
+               >
+                  <a
+                     href="tel:+917559917686"
+                     className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors border-b border-white/5"
+                     onClick={() => setIsOpen(false)}
+                  >
+                     <Phone size={16} className="text-brand-gold" />
+                     <span className="text-white text-xs font-bold">Call Now</span>
+                  </a>
+                  <a
+                     href={`https://wa.me/917559917686?text=I'm interested in booking a ${vehicleName}`}
+                     className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
+                     onClick={() => setIsOpen(false)}
+                  >
+                     <MessageCircle size={16} className="text-green-500" />
+                     <span className="text-white text-xs font-bold">WhatsApp</span>
+                  </a>
+               </motion.div>
+            )}
+         </AnimatePresence>
       </div>
    );
 };
@@ -1059,12 +1172,7 @@ const CarsShowcase = () => {
                            </span>
                         </div>
                         <div className="flex gap-3">
-                           <a
-                              href={`https://wa.me/917559917686?text=I'm interested in booking a ${vehicle.name}`}
-                              className="flex-1 py-3.5 bg-brand-gold text-brand-black text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-2 hover:bg-brand-gold-light transition-all duration-300"
-                           >
-                              Book Now
-                           </a>
+                           <BookNowButton vehicleName={vehicle.name} />
                            <button
                               onClick={() => navigate(`/tariff?vehicle=${vehicle.id}`)}
                               className="flex-1 py-3.5 bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 transition-all duration-300"
@@ -1233,7 +1341,7 @@ const Destinations = () => {
          <div className="section-title-bg">TRAVEL</div>
 
          <div className="container mx-auto px-6 relative z-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
                <div className="max-w-2xl">
                   <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">
                      Explore Kerala
@@ -1242,12 +1350,39 @@ const Destinations = () => {
                      Popular <span className="text-stroke-gold">Destinations</span>
                   </h2>
                </div>
-               <p className="text-white/40 max-w-sm text-sm font-medium leading-relaxed">
+               <p className="text-white/40 max-w-sm text-sm font-medium leading-relaxed hidden md:block">
                   Discover the most breathtaking locations in Kerala with our curated tour packages.
                </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Mobile Slider */}
+            <div className="md:hidden overflow-x-auto scrollbar-hide -mx-6 px-6">
+               <div className="flex gap-4 pb-4" style={{ width: 'max-content' }}>
+                  {DESTINATIONS.map((dest, i) => (
+                     <div
+                        key={i}
+                        className="relative w-[200px] h-[280px] rounded-2xl overflow-hidden flex-shrink-0 border border-white/10"
+                     >
+                        <img
+                           src={dest.image}
+                           alt={dest.name}
+                           className="w-full h-full object-cover"
+                           referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent" />
+                        <div className="absolute inset-0 flex flex-col justify-end p-4">
+                           <span className="text-brand-gold text-[8px] font-black uppercase tracking-[0.2em] mb-1">
+                              {dest.tagline}
+                           </span>
+                           <h3 className="text-lg font-display font-black text-white uppercase tracking-tight">{dest.name}</h3>
+                        </div>
+                     </div>
+                  ))}
+               </div>
+            </div>
+
+            {/* Desktop Grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                {DESTINATIONS.map((dest, i) => (
                   <motion.div
                      key={i}
@@ -1381,8 +1516,8 @@ const Stats = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
                {[
                   { label: 'Destinations', end: 50, suffix: '+' },
-                  { label: 'Trips Completed', end: 10, suffix: 'K+' },
-                  { label: 'Happy Tourists', end: 5, suffix: 'K+' },
+                  { label: 'Trips Completed', end: 20, suffix: 'K+' },
+                  { label: 'Happy Tourists', end: 18, suffix: 'K+' },
                   { label: 'Years Experience', end: 15, suffix: '+' },
                ].map((stat, i) => (
                   <div key={i} className="group">

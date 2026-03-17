@@ -77,3 +77,12 @@ body::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
+
+/* Hide scrollbar for horizontal sliders */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
