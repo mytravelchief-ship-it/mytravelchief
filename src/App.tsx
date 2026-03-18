@@ -1107,7 +1107,7 @@ const BookNowButton = ({ vehicleName }: { vehicleName: string }) => {
                      <span className="text-white text-xs font-bold">Call Now</span>
                   </a>
                   <a
-                     href={`https://wa.me/917559917686?text=I'm interested in booking a ${vehicleName}`}
+                     href={`https://wa.me/917559917686?text=Hi, I'd like to book a ${vehicleName}. Could you please share more details about it?`}
                      className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
                      onClick={() => setIsOpen(false)}
                   >
@@ -1289,7 +1289,7 @@ const TrustSection = () => {
 
 const CallToAction = () => {
    return (
-      <section className="py-20 bg-brand-black relative overflow-hidden">
+      <section className="py-5 bg-brand-black relative overflow-hidden">
          <div className="container mx-auto px-6 relative z-10 text-center">
             <motion.div
                initial={{ opacity: 0, scale: 0.9 }}
@@ -1297,15 +1297,15 @@ const CallToAction = () => {
                viewport={{ once: true }}
                className="max-w-5xl mx-auto"
             >
-               <span className="text-brand-gold font-black uppercase tracking-[0.5em] text-[10px] mb-8 block">
+               <span className="text-brand-gold font-black uppercase tracking-[0.5em] text-[10px] mb-4 block">
                   Ready to Travel in Kerala?
                </span>
-               <h2 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tight mb-12 leading-none">
+               <h2 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tight mb-8 leading-none">
                   Book Your Ride <br />
                   <span className="text-stroke-gold">With Travel Chief</span>
                </h2>
 
-               <div className="flex flex-wrap justify-center gap-12 mb-20">
+               <div className="flex flex-wrap justify-center gap-12 mb-10">
                   {['Comfortable Rides', 'On-Time Pickup', 'Expert Support'].map(item => (
                      <div
                         key={item}
@@ -1474,7 +1474,7 @@ const Stats = () => {
          image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773530209/unnamed_4_hjikd0.webp',
          name: 'Mayuri Bhosale',
          type: 'Kerala Tour',
-         quote: 'I had an amazing experience with the cab service. Our driver, Jitin, was very courteous and knowledgeable. He took us to all the major attractions, providing insightful information about each location. His expertise and friendly demeanor made the tour truly enjoyable. Highly recommend!',
+         quote: 'I had an amazing experience with the cab service. Our driver, Jitin, was very knowledgeable. He  providing insightful information about each location. His expertise and friendly demeanor made the tour truly enjoyable. Highly recommend!',
       },
       {
          image: 'https://res.cloudinary.com/db41bfixa/image/upload/v1773530048/unnamed_3_jbobz5.webp',
@@ -1536,8 +1536,8 @@ const Stats = () => {
             </div>
 
             {/* Reviews */}
-            <div className="mt-28">
-               <div className="text-center mb-16">
+            <div className="mt-16 md:mt-28">
+               <div className="text-center mb-8 md:mb-16">
                   <span className="text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">
                      Trip Memories
                   </span>
@@ -1546,7 +1546,44 @@ const Stats = () => {
                   </h2>
                </div>
 
-               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 max-w-6xl mx-auto md:px-4">
+               {/* Mobile Slider */}
+               <div className="md:hidden overflow-x-auto scrollbar-hide -mx-6 px-6">
+                  <div className="flex gap-4 pb-4" style={{ width: 'max-content' }}>
+                     {reviews.map((review, i) => (
+                        <div
+                           key={i}
+                           className="w-[280px] flex-shrink-0 bg-white/[0.03] rounded-2xl overflow-hidden border border-white/10"
+                        >
+                           <div className="relative h-40 overflow-hidden">
+                              <img src={review.image} alt={review.name} className="w-full h-full object-cover" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 via-transparent to-transparent" />
+                              <div className="absolute top-3 left-3">
+                                 <span className="bg-brand-gold text-brand-black text-[8px] font-black uppercase tracking-wider px-2 py-1 rounded-full">
+                                    {review.type}
+                                 </span>
+                              </div>
+                           </div>
+                           <div className="p-4">
+                              <div className="flex gap-0.5 mb-2">
+                                 {[...Array(5)].map((_, j) => (
+                                    <Star key={j} size={12} className="fill-brand-gold text-brand-gold" />
+                                 ))}
+                              </div>
+                              <p className="text-white/50 text-xs leading-relaxed mb-3 italic">&ldquo;{review.quote}&rdquo;</p>
+                              <div className="flex items-center gap-2 pt-3 border-t border-white/5">
+                                 <div className="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center">
+                                    <Users size={10} className="text-brand-gold" />
+                                 </div>
+                                 <p className="text-white font-display font-bold text-xs">{review.name}</p>
+                              </div>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+
+               {/* Desktop Grid */}
+               <div className="hidden md:grid md:grid-cols-3 gap-10 md:gap-6 max-w-6xl mx-auto md:px-4">
                   {reviews.map((review, i) => (
                      <motion.div
                         key={i}
