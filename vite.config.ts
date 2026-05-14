@@ -10,6 +10,11 @@ export default defineConfig(({mode}) => {
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
+    build: {
+      // Targets a Chromium old enough for react-snap's bundled headless browser
+      // (Chrome 73) so prerendering doesn't choke on optional chaining / nullish coalescing.
+      target: 'es2017',
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

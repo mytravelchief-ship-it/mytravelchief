@@ -395,6 +395,40 @@ const scrollToElement = (el: HTMLElement) => {
    window.scrollTo({ top: elementPosition - navbarHeight, behavior: 'smooth' });
 };
 
+// Helper: set per-page SEO title, description, and canonical
+const useSEO = ({ title, description, canonical }: { title: string; description: string; canonical?: string }) => {
+   useEffect(() => {
+      document.title = title;
+
+      let metaDesc = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+      if (!metaDesc) {
+         metaDesc = document.createElement('meta');
+         metaDesc.setAttribute('name', 'description');
+         document.head.appendChild(metaDesc);
+      }
+      metaDesc.setAttribute('content', description);
+
+      const ogTitle = document.querySelector('meta[property="og:title"]') as HTMLMetaElement | null;
+      if (ogTitle) ogTitle.setAttribute('content', title);
+
+      const ogDesc = document.querySelector('meta[property="og:description"]') as HTMLMetaElement | null;
+      if (ogDesc) ogDesc.setAttribute('content', description);
+
+      if (canonical) {
+         let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+         if (!link) {
+            link = document.createElement('link');
+            link.setAttribute('rel', 'canonical');
+            document.head.appendChild(link);
+         }
+         link.setAttribute('href', canonical);
+
+         const ogUrl = document.querySelector('meta[property="og:url"]') as HTMLMetaElement | null;
+         if (ogUrl) ogUrl.setAttribute('content', canonical);
+      }
+   }, [title, description, canonical]);
+};
+
 // Helper: scroll to hash or navigate to home + hash
 const useScrollToHash = () => {
    const location = useLocation();
@@ -550,9 +584,18 @@ const Navbar = () => {
 };
 
 const HERO_SLIDES = [
-   'https://res.cloudinary.com/db41bfixa/image/upload/v1772454263/hawaii-beach-landscape-with-nature-coastline_2_1_f4pytb.jpg',
-   'https://res.cloudinary.com/db41bfixa/image/upload/v1772453595/view-green-palm-tree-species-with-beautiful-foliage_2_vfrhk2.jpg',
-   'https://res.cloudinary.com/db41bfixa/image/upload/v1772453516/aerial-shot-long-road-surrounded-by-trees-fields_3_1_lvmuqr.jpg',
+   {
+      src: 'https://res.cloudinary.com/db41bfixa/image/upload/v1772454263/hawaii-beach-landscape-with-nature-coastline_2_1_f4pytb.jpg',
+      alt: 'Kerala beach landscape with palm-lined tropical coastline',
+   },
+   {
+      src: 'https://res.cloudinary.com/db41bfixa/image/upload/v1772453595/view-green-palm-tree-species-with-beautiful-foliage_2_vfrhk2.jpg',
+      alt: 'Lush green Kerala palm trees and tropical foliage',
+   },
+   {
+      src: 'https://res.cloudinary.com/db41bfixa/image/upload/v1772453516/aerial-shot-long-road-surrounded-by-trees-fields_3_1_lvmuqr.jpg',
+      alt: 'Aerial view of a scenic Kerala road winding through tropical forest',
+   },
 ];
 
 const Hero = () => {
@@ -569,14 +612,14 @@ const Hero = () => {
       <section className="relative min-h-screen flex items-center pt-32 pb-10 overflow-hidden bg-brand-black">
          {/* Background Slideshow */}
          <div className="absolute inset-0 z-0">
-            {HERO_SLIDES.map((src, i) => (
+            {HERO_SLIDES.map((slide, i) => (
                <div
                   key={i}
                   className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${i === currentSlide ? 'opacity-60' : 'opacity-0'}`}
                >
                   <img
-                     src={src}
-                     alt={`Kerala ${i + 1}`}
+                     src={slide.src}
+                     alt={slide.alt}
                      className="w-full h-full object-cover scale-105"
                      style={{ animation: i === currentSlide ? 'heroZoom 5s ease-in-out forwards' : 'none' }}
                   />
@@ -1150,7 +1193,7 @@ const CarsShowcase = () => {
                      <div className="relative h-56 overflow-hidden">
                         <img
                            src={vehicle.image}
-                           alt={vehicle.name}
+                           alt={`${vehicle.name} ${vehicle.type} cab for hire in Kerala - ${vehicle.seats} seater`}
                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                            referrerPolicy="no-referrer"
                         />
@@ -1224,7 +1267,7 @@ const TrustSection = () => {
                   <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
                      <img
                         src="https://res.cloudinary.com/db41bfixa/image/upload/v1772456386/young-family-with-little-son-walking-bridge-by-river_juff47.jpg"
-                        alt="Kerala Tourism"
+                        alt="Family enjoying a Kerala tour with Travel Chief cab service"
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
                      />
@@ -1374,7 +1417,7 @@ const Destinations = () => {
                      >
                         <img
                            src={dest.image}
-                           alt={dest.name}
+                           alt={`${dest.name}, Kerala - ${dest.tagline} | Tour packages by Travel Chief`}
                            className="w-full h-full object-cover"
                            referrerPolicy="no-referrer"
                         />
@@ -1560,7 +1603,7 @@ const Stats = () => {
                            className="w-[280px] flex-shrink-0 bg-white/[0.03] rounded-2xl overflow-hidden border border-white/10"
                         >
                            <div className="relative h-40 overflow-hidden">
-                              <img src={review.image} alt={review.name} className="w-full h-full object-cover" />
+                              <img src={review.image} alt={`${review.name} - happy Travel Chief customer review`} className="w-full h-full object-cover" />
                               <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 via-transparent to-transparent" />
                               <div className="absolute top-3 left-3">
                                  <span className="bg-brand-gold text-brand-black text-[8px] font-black uppercase tracking-wider px-2 py-1 rounded-full">
@@ -1603,7 +1646,7 @@ const Stats = () => {
                            <div className="relative h-56 sm:h-64 overflow-hidden">
                               <img
                                  src={review.image}
-                                 alt={review.name}
+                                 alt={`${review.name} - happy Travel Chief customer review`}
                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 via-transparent to-transparent" />
@@ -1932,6 +1975,12 @@ const FloatingButtons = () => {
 
 const HomePage = () => {
    useScrollToHash();
+   useSEO({
+      title: 'Cab Service in Kochi | Airport Taxi & 24/7 Booking - Travel Chief',
+      description:
+         'Travel Chief offers reliable Kerala cab services - Kochi airport taxi, Munnar & Alleppey tour packages, outstation trips. Book Dzire, Innova, Tempo Traveller at best rates.',
+      canonical: 'https://mytravelchief.com/',
+   });
    return (
       <>
          <Hero />
@@ -1951,6 +2000,19 @@ const TariffPage = () => {
    const location = useLocation();
    const params = new URLSearchParams(location.search);
    const vehicleId = params.get('vehicle');
+   const selectedVehicle = vehicleId ? VEHICLES.find(v => v.id === vehicleId) : null;
+
+   useSEO({
+      title: selectedVehicle
+         ? `${selectedVehicle.name} Cab Booking in Kerala | Travel Chief Tariff`
+         : 'Cab Tariff & Pricing in Kerala | Travel Chief',
+      description: selectedVehicle
+         ? `Book ${selectedVehicle.name} (${selectedVehicle.type}, ${selectedVehicle.seats} seats) in Kerala. ${selectedVehicle.description} Airport, local & outstation rates.`
+         : 'Transparent cab tariffs for Kerala - Dzire, Ertiga, Innova, Crysta, Tempo Traveler, Urbania & Coaches. Airport, local hourly & outstation rates.',
+      canonical: selectedVehicle
+         ? `https://mytravelchief.com/tariff?vehicle=${selectedVehicle.id}`
+         : 'https://mytravelchief.com/tariff',
+   });
 
    useEffect(() => {
       if (!vehicleId) {

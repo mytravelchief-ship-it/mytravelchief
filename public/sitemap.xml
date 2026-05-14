@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://mytravelchief.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Vehicles -->
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=dzire</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/db41bfixa/image/upload/v1773312544/Screenshot_2026-03-12_161818_qysbit.png</image:loc>
+      <image:title>Dzire / Etios - Sedan Cab for Kerala</image:title>
+      <image:caption>Comfortable air-conditioned sedan perfect for city rides and airport transfers.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=ertiga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mallucabscochin.com/image/taxi/mallu-cabs-suv-cab-booking.jpg</image:loc>
+      <image:title>Suzuki Ertiga - 6 Seater MPV Cab</image:title>
+      <image:caption>Spacious 6-seater MPV ideal for medium-sized families and group outings.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=innova</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mallucabscochin.com/image/taxi/innova-car-booking-in-kochi-kerala.jpg</image:loc>
+      <image:title>Toyota Innova - 7 Seater Cab in Kerala</image:title>
+      <image:caption>The standard for long-distance travel in India. Unmatched comfort and reliability.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=crysta</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mallucabscochin.com/image/taxi/tour-cab-booking-kochi.jpg</image:loc>
+      <image:title>Innova Crysta - Premium MPV Cab</image:title>
+      <image:caption>Luxury version of the Innova. Perfect for premium travel experiences.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=tempo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mallucabscochin.com/image/taxi/mallu-cabs-tempo-traveler.png</image:loc>
+      <image:title>Tempo Traveler - 10 to 26 Seater Van</image:title>
+      <image:caption>Ideal for large families or groups of friends exploring Kerala together.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=luxury-tempo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mallucabscochin.com/image/taxi/mallu-cabs-luxury-tempo%20-traveler.jpg</image:loc>
+      <image:title>Luxury Tempo Traveler - 8 to 10 Seater</image:title>
+      <image:caption>Premium seating for smaller groups who want extra comfort.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=urbania</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&amp;fit=crop&amp;q=80&amp;w=800</image:loc>
+      <image:title>Force Urbania - 12 to 16 Seater Premium Van</image:title>
+      <image:caption>The most modern and comfortable large van available for group travel.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=coach-35</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&amp;fit=crop&amp;q=80&amp;w=800</image:loc>
+      <image:title>BharatBenz Coach - 35 Seater</image:title>
+      <image:caption>Premium coach for large groups with comfortable seating and ample luggage space.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=coach-45</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&amp;fit=crop&amp;q=80&amp;w=800</image:loc>
+      <image:title>Glider Coach - 45 Seater Luxury Coach</image:title>
+      <image:caption>Luxury glider coach for large corporate groups or wedding parties.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mytravelchief.com/tariff?vehicle=bus-49</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&amp;fit=crop&amp;q=80&amp;w=800</image:loc>
+      <image:title>AC Bus - 49 Seater</image:title>
+      <image:caption>Standard AC bus for large group transportation across Kerala.</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
