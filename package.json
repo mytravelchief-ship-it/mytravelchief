@@ -5,36 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "postinstall": "chmod -R +x node_modules/.bin/ 2>/dev/null; chmod -R +x node_modules/.pnpm/ 2>/dev/null || true",
-    "build": "chmod -R +x node_modules/.bin/ 2>/dev/null; chmod -R +x node_modules/.pnpm/*/bin/* 2>/dev/null; vite build",
-    "postbuild": "react-snap",
+    "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
   },
-  "reactSnap": {
-    "source": "dist",
-    "destination": "dist",
-    "include": [
-      "/",
-      "/tariff",
-      "/tariff?vehicle=dzire",
-      "/tariff?vehicle=ertiga",
-      "/tariff?vehicle=innova",
-      "/tariff?vehicle=crysta",
-      "/tariff?vehicle=tempo",
-      "/tariff?vehicle=luxury-tempo",
-      "/tariff?vehicle=urbania",
-      "/tariff?vehicle=coach-35",
-      "/tariff?vehicle=coach-45",
-      "/tariff?vehicle=bus-49"
-    ],
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "skipThirdPartyRequests": true,
-    "inlineCss": true
-  },
   "pnpm": {
-    "onlyBuiltDependencies": ["puppeteer", "esbuild", "better-sqlite3"]
+    "onlyBuiltDependencies": ["better-sqlite3"]
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
@@ -56,7 +33,6 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.21",
-    "react-snap": "^1.23.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
