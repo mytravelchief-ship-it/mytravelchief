@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "find node_modules -name esbuild -type f -path '*/bin/*' -exec chmod +x {} + 2>/dev/null; vite build",
+    "postinstall": "chmod -R +x node_modules/.bin/ 2>/dev/null || true",
+    "build": "chmod -R +x node_modules/.bin/ 2>/dev/null; chmod -R +x node_modules/.pnpm/*/bin/* 2>/dev/null; vite build",
     "postbuild": "react-snap",
     "preview": "vite preview",
     "clean": "rm -rf dist",
